@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 
-for i in range(26):
-    letra = chr(97 + i)
-    print(letra, end="")
+for i in range(97,123):
+    print("{}".format(chr(i)), end="")
