@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 
-for i in range(100):
-    if (i < 10):
-        print(f"0{i}, ", end="")
-    elif (i != 99):
-        print(f"{i}, ", end="")
-    else:
-        print(i)
+for i in range(10):
+    for j in range(10):
+        print(f"{i}{j}, ", end="")
+        if (i == 9 and j == 9):
+            print(f"{i}{j}")
