@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    if sentence != None: 
+    if sentence != "": 
         tupla = (len(sentence), sentence[0])
         return tupla
     else:
-        return None
+        return (None, 0)
