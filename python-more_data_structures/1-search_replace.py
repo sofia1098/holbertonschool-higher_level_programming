@@ -7,5 +7,4 @@ def search_replace(my_list, search, replace):
         else:
             lista.append(i)
     return lista
-
-            
+       
