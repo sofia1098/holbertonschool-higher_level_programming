@@ -1,0 +1,20 @@
+>>> from 3-say_my_name import say_my_name
+>>> say_my_name("Paquita", "Salas")
+My name is Paquita Salas
+
+>>> say_my_name(123, "Salas")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+>>> say_my_name("Paquita", 456)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+>>> say_my_name("Paquita")
+Traceback (most recent call last):
+    ...
+TypeError: missing 1 required positional argument: 'last_name'
+>>> say_my_name()
+Traceback (most recent call last):
+    ...
+TypeError: missing 2 required positional arguments: 'first_name' and 'last_name'
