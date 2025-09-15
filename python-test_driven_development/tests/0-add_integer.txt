@@ -7,11 +7,11 @@
 99
 >>> add_integer(10.3, -2)
 8
->>> add_integer("1", "dos")
-Traceback (most recent call last):
-    ...
-TypeError: b must be an integer
->>> add_integer("uno", 2)
+>>> add_integer("uno", "2")
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
+>>> add_integer("uno", "dos")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
