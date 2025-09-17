@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 class Square:
     """Define un cuadrado"""
+    
 
     def __init__(self, size=0):
         """Inicializa un nuevo cuadrado con tamaño opcional"""
