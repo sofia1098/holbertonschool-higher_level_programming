@@ -5,10 +5,9 @@
 
 class Square:
     """
-    Este módulo contiene la definición de la clase Square 
+    Este módulo contiene la definición de la clase Square
     con sus métodos size, area y my_print.
     """
-
 
     def __init__(self, size=0):
         self.size = size
