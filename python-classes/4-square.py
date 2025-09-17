@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 class Square:
-    """Este módulo contiene la definición de la clase Square con sus métodos size, area y my_print."""
+    """
+    Este módulo contiene la definición de la clase Square 
+    con sus métodos size, area y my_print.
+    """
 
 
     def __init__(self, size=0):
