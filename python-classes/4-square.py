@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 class Square:
-    """Define un cuadrado"""
-    
+    """Este módulo contiene la definición de la clase Square con sus métodos size, area y my_print."""
+
 
     def __init__(self, size=0):
-        """Inicializa un nuevo cuadrado con tamaño opcional"""
         self.size = size
 
     @property
