@@ -49,3 +49,13 @@ class Rectangle:
                 for j in range(self.__width):
                     print("#", end="")
                 print()
+
+    def __str__(self):
+        if self.width == 0 or self.height == 0:
+            return ""
+        result = ""
+        for i in range(self.height):
+            result += "#" * self.width
+            if i != self.height - 1:
+                result += "\n"
+        return result
