@@ -41,7 +41,7 @@ class Rectangle:
         else:
             return ((self.__height * 2) + (self.__width * 2))
 
-     def my_print(self):
+    def my_print(self):
         if self.__width == 0 or self.__height == 0:
             print("")
         else:
