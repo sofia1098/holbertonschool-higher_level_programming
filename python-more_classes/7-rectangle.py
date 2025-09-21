@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-    """clase rectangulo"""
+    """Clase rectangulo"""
     number_of_instances = 0
     print_symbol = "#"
 
@@ -16,10 +16,6 @@ class Rectangle:
     def width(self):
         return self.__width
 
-    @property
-    def height(self):
-        return self.__height
-
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -27,6 +23,10 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
+
+    @property
+    def height(self):
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -42,27 +42,13 @@ class Rectangle:
     def perimeter(self):
         if self.__width == 0 or self.__height == 0:
             return 0
-        else:
-            return ((self.__height * 2) + (self.__width * 2))
-
-    def my_print(self):
-        if self.__width == 0 or self.__height == 0:
-            print("")
-        else:
-            for i in range(self.__height):
-                for j in range(self.__width):
-                    print(str(print_symbol), end="")
-                print()
+        return (self.__height * 2) + (self.__width * 2)
 
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ""
-        result = ""
-        for i in range(self.height):
-            result += "#" * self.width
-            if i != self.height - 1:
-                result += "\n"
-        return result
+        row = str(self.print_symbol) * self.width
+        return "\n".join([row for _ in range(self.height)])
 
     def __repr__(self):
         return "Rectangle({}, {})".format(self.width, self.height)
