@@ -51,7 +51,7 @@ class Rectangle:
         else:
             for i in range(self.__height):
                 for j in range(self.__width):
-                    print("#", end="")
+                    print(str(print_symbol), end="")
                 print()
 
     def __str__(self):
