@@ -8,4 +8,5 @@ class MyList(list):
         Prints the list in ascending sorted order
         without modifying the original list
         """
+
         print(sorted(selfs))
