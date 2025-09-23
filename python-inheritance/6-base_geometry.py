@@ -10,4 +10,5 @@ class BaseGeometry:
     """
     try:
         def area(self):
-    except TypeError("area() is not implemented"): 
+    except:
+        print("area() is not implemented")
