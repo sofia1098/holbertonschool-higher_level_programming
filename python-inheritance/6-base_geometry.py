@@ -8,4 +8,6 @@ class BaseGeometry:
     """
     esta clase esta vacia
     """
-    def area(self):
+    try:
+        def area(self):
+    except TypeError("area() is not implemented"): 
