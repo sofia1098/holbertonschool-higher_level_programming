@@ -5,4 +5,7 @@ clase vacia
 
 
 class BaseGeometry
+    """
+    esta clase esta vacia
+    """
     pass
