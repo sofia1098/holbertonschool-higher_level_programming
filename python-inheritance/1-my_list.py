@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Clase bla bla bla """
+"""Clase bla bla 
+bla 
+"""
 
 
 class MyList(list):
@@ -8,5 +10,4 @@ class MyList(list):
         Prints the list in ascending sorted order
         without modifying the original list
         """
-
         print(sorted(selfs))
