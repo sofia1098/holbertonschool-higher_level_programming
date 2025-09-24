@@ -1,0 +1,7 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> value = BaseGeometry()
+    >>> value = BaseGeometry.append("Nombre")
+    >>> integer_validator(value)
+    >>>
+    >>> value = BaseGeometry.append("-2")
+
