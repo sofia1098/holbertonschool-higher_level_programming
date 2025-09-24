@@ -8,7 +8,5 @@ class BaseGeometry:
     """
     esta clase esta vacia
     """
-    try:
-        def area(self):
-    except:
-        print("area() is not implemented")
+    def area(self):
+        raise Exception("area() is not implemented")
