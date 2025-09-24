@@ -1,6 +1,15 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-    >>> value = BaseGeometry()
-    >>> value = BaseGeometry.append("nombre",)
-    >>>
-    >>> value = BaseGeometry.append("-2")
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>>bg = BaseGeometry()
+
+    >>>bg.integer_validator("my_int", 12)
+    >>>bg.integer_validator("width", 89)
+
+    >>>bg.integer_validator("name", "John")
+    >>>print("[{}] {}".format(e.__class__.__name__, e))
+
+    >>>bg.integer_validator("age", 0)
+    >>>print("[{}] {}".format(e.__class__.__name__, e))
+    
+    >>>bg.integer_validator("distance", -4)
+    >>>print("[{}] {}".format(e.__class__.__name__, e))
 
