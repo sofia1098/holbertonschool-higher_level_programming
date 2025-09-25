@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""un cuadrado """
-Rectangle = __import__(9-rectangle.py).Rectangle
 
+Rectangle = __import__(9-rectangle.py).Rectangle
+"""hola"""
 
 class Square(Rectangle):
     """ clase de cuadrado"""
