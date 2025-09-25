@@ -2,27 +2,15 @@
 """
 Clase de geometria
 """
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
-class BaseGeometry:
+class Rectangle(width=0,height=0):
     """
-    Clase de geometria
+    esta clase es de rectangulos
     """
-    def area(self):
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        if not isinstance(value, int):
-            raise TypeError("<name> must be an integer")
-        if value < 0:
-            raise ValueError("<name> must be greater than 0")
-
-    class Rectangle(width=0,height=0):
-        """
-        esta clase es de rectangulos
-        """
-        def __init__(self, width, height):
-            self.integer_validator("width", width)
-            self.__width = width
-            self.integer_validator("height", height)
-            self.__height = height
+    def __init__(self, width, height):
+        self.integer_validator("width", width)
+        self.__width = width
+        self.integer_validator("height", height)
+        self.__height = height
