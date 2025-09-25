@@ -4,7 +4,7 @@ clase vacia
 """
 
 
-class BaseGeometry:
+class BaseGeometry():
     """
     esta clase esta vacia
     """
