@@ -22,8 +22,7 @@ class BaseGeometry:
         esta clase es de rectangulos
         """
         def __init__(self, width, height):
+            self.integer_validator("width", width)
             self.__width = width
+            self.integer_validator("height", height)
             self.__height = height
-
-    bg = integer_validator(Rectangle, width)
-    bg1 = integer_validator(Rectangle,height)
