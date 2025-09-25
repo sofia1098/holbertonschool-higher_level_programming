@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-Square = __import__(9-rectangle.py).Square
+Square = __import__(9-rectangle.py).Rectangle
 """un cuadrado """
 
 
