@@ -5,7 +5,7 @@ Clase de geometria
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
-class Rectangle(width=0,height=0):
+class Rectangle(BaseGeometry):
     """
     esta clase es de rectangulos
     """
