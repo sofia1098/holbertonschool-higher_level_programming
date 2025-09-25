@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from 9-rectangle.py import Rectangle
+from 9-rectangle import Rectangle
 """un cuadrado """
 
 
