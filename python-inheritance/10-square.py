@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-Rectangle = __import__(9-rectangle.py).Rectangle
 """un cuadrado """
+Rectangle = __import__(9-rectangle.py).Rectangle
 
 
 class Square(Rectangle):
