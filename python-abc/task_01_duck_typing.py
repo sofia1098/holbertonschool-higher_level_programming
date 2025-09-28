@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from abc import ABC, abstractmethod
 import math
-"""" comentario"""
+""" comentario"""
 
 
 class Shape(ABC):
@@ -13,7 +13,7 @@ class Shape(ABC):
     def perimeter(self):
         pass
 
-class Circule(Shape):
+class Circle(Shape):
 
     def __init__(self, radius):
         self.radius = radius
