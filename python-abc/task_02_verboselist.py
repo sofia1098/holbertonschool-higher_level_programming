@@ -8,7 +8,7 @@ class VerboseList(list):
         super().append(item)
         print(f"Added [{item}] to the list.")
 
-    def extend(self, iterable)
+    def extend(self, iterable):
         count  = len(iterable)
         super().extend(iterable)
         print(f"Extended the list with [{count}] items.")
