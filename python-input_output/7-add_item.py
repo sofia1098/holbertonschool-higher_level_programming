@@ -11,7 +11,7 @@ if __name__ == '__main__':
     if os.path.exists("./add_item.json"):
         lista = list(load_from_json_file(filename))
     else:
-        my_list = []
+        lista = []
 
     lista.extend(sys.argv[1:])
     save_to_json_file(lista, filename)
