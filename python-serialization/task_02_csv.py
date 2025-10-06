@@ -22,5 +22,5 @@ def convert_csv_to_json(csv_filename: str):
         return False
 
     except Exception as err:
-        pprint(f"An error occurred: {err}")
+        print(f"An error occurred: {err}")
         return False
