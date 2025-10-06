@@ -9,7 +9,7 @@ def pascal_triangle(n):
 
     matriz = [[1]] 
 
-    for i in range (1, n):
+    for i in range(1, n):
         prev = matriz[-1]
         row = [1]
 
