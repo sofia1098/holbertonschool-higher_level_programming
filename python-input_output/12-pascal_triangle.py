@@ -3,7 +3,7 @@
 
 
 def pascal_triangle(n): 
-    if n <= 0
+    if n <= 0:
         return []
 
     matriz = [[1]]
@@ -17,4 +17,4 @@ def pascal_triangle(n):
         row.append(1)
         matriz.append(row)
 
-    return matrix
+    return matriz
