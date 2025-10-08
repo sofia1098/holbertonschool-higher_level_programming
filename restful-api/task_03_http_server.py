@@ -7,7 +7,7 @@ import json
 class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         # endpoint raiz
-        if self.path == '/'
+        if self.path == '/':
             self.sendresponse = (200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
