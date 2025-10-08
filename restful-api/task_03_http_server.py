@@ -8,12 +8,12 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         # endpoint raiz
         if self.path == '/':
-            self.sendresponse = (200)
+            self.sendresponse(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
 
-        # Endpoint /data
+        # Endpoint data
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -21,14 +21,14 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
-        # Endpoint /status
+        # Endpoint status
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
 
-        # Endpoint /info
+        # Endpoint info
         elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -43,8 +43,8 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"Endpoint not found")
 
-    if __name__ == "__main__":
-        server_address = ("", 8000)  # host vacío = localhost, puerto 8000
-        httpd = http.server.HTTPServer(server_address, SimpleAPIHandler)
-        print("Server running on http://localhost:8000")
-        httpd.serve_forever()
+if __name__ == "__main__":
+    server_address = ("", 8000)  # host vacío = localhost, puerto 8000
+    httpd = http.server.HTTPServer(server_address, SimpleAPIHandler)
+    print("Server running on http://localhost:8000")
+    httpd.serve_forever()
