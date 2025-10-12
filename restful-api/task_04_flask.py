@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """Flask API"""
 
-
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Diccionario de usuarios
+# Diccionario de usuarios vacío al inicio
 users = {}
 
 @app.route("/")
@@ -19,12 +18,11 @@ def status():
 
 @app.route("/data")
 def get_all_users():
-    #return la lista de todos los usuarios
-    return jsonify(list(users.values())), 200
+    # Devuelve solo la lista de usernames
+    return jsonify(list(users.keys())), 200
 
 @app.route("/users/<username>")
 def get_user(username):
-    #return información de un usuario
     user = users.get(username)
     if user:
         return jsonify(user)
@@ -33,7 +31,6 @@ def get_user(username):
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    #Agrega nuevo usuario
     data = request.get_json()
 
     if not data or "username" not in data:
@@ -47,7 +44,7 @@ def add_user():
     users[username] = data
 
     return jsonify({
-        "message": "User added successfully",
+        "message": "User added",
         "user": data
     }), 201
 
