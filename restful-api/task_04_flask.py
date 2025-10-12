@@ -5,7 +5,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Diccionario de usuarios vacío al inicio
+# Diccionario de usuarios vacío
 users = {}
 
 @app.route("/")
@@ -18,7 +18,6 @@ def status():
 
 @app.route("/data")
 def get_all_users():
-    # Devuelve solo la lista de usernames
     return jsonify(list(users.keys())), 200
 
 @app.route("/users/<username>")
@@ -33,31 +32,20 @@ def get_user(username):
 def add_user():
     data = request.get_json()
 
-    # Validación obligatoria
     if not data or "username" not in data:
         return jsonify({"error": "Username is required"}), 400
 
     username = data["username"]
 
-    # Validación duplicados EXACTA para pasar el test
     if username in users:
-        return app.response_class(
-            response='{"error": "User already exists"}',
-            status=400,
-            mimetype='application/json'
-        )
+        return jsonify({"error": "User already exists"}), 400
 
-    # Guardar usuario con todos los campos requeridos
-    users[username] = {
-        "username": username,
-        "name": data.get("name", ""),
-        "age": data.get("age", 0),
-        "city": data.get("city", "")
-    }
+    # Guardar EXACTAMENTE lo que llega
+    users[username] = data
 
     return jsonify({
         "message": "User added",
-        "user": users[username]
+        "user": data
     }), 201
 
 
