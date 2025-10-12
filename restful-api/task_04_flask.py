@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Api Flask"""
+"""Flask API"""
 
 
 from flask import Flask, jsonify, request
 
-
 app = Flask(__name__)
-#diccionario inicial de usuarios
+
+# Diccionario de usuarios
 users = {
     "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
     "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
@@ -20,27 +20,37 @@ def home():
 def status():
     return "OK"
 
-@app.route("/data/<usernames>")
-def get_usernames():
-    #devuelve solo username
+@app.route("/data")
+def get_all_users():
+    #return la lista de todos los usuarios
+    return jsonify(list(users.values())), 200
+
+@app.route("/users/<username>")
+def get_user(username):
+    #return información de un usuario
     user = users.get(username)
     if user:
         return jsonify(user)
     else:
-        return jsonify({"error": "User not found"})
+        return jsonify({"error": "User not found"}), 404
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
+    #Agrega nuevo usuario
     data = request.get_json()
-    #checkear que username eeste en json
+
     if not data or "username" not in data:
-       return jsonify({"error": "Username is required"}), 400
+        return jsonify({"error": "Username is required"}), 400
 
     username = data["username"]
+
+    if username in users:
+        return jsonify({"error": "User already exists"}), 400
+
     users[username] = data
 
     return jsonify({
-        "message": "User added",
+        "message": "User added successfully",
         "user": data
     }), 201
 
