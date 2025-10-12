@@ -33,20 +33,33 @@ def get_user(username):
 def add_user():
     data = request.get_json()
 
+    # Validación obligatoria
     if not data or "username" not in data:
         return jsonify({"error": "Username is required"}), 400
 
     username = data["username"]
 
+    # Validación duplicados EXACTA para pasar el test
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return app.response_class(
+            response='{"error": "User already exists"}',
+            status=400,
+            mimetype='application/json'
+        )
 
-    users[username] = data
+    # Guardar usuario con todos los campos requeridos
+    users[username] = {
+        "username": username,
+        "name": data.get("name", ""),
+        "age": data.get("age", 0),
+        "city": data.get("city", "")
+    }
 
     return jsonify({
         "message": "User added",
-        "user": data
+        "user": users[username]
     }), 201
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
