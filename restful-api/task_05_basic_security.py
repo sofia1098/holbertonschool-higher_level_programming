@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = secrets.token_hex(32)
+app.config['JWT_SECRET_KEY'] = 'codigosecreto'
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
 
@@ -44,28 +44,27 @@ def login():
 @app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
-    identity = get_jwt_identity()
-    return jsonify(message="JWT Auth: Access Granted", user=identity), 200
+    return "JWT Auth: Access Granted", 200
 
 @app.route('/admin-only')
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
     if current_user["role"] != "admin":
-        return jsonify({"error": "Admin access only"}), 403
-    return jsonify(message="Admin Access: Granted"), 200
+        return "error Admin access only", 403
+    return "Admin Access: Granted", 200
 
 @jwt.unauthorized_loader
 def unauthorized_response(callback):
-    return jsonify({"error": "Missing Authorization Header"}), 401
+    return "Missing Authorization Header", 401
 
 @jwt.invalid_token_loader
 def invalid_token_response(callback):
-    return jsonify({"error": "Invalid token"}), 401
+    return "Invalid token", 401
 
 @jwt.expired_token_loader
 def expired_token_response(jwt_header, jwt_payload):
-    return jsonify({"error": "Token has expired"}), 401
+    return "Token has expired", 401
 
 if __name__ == '__main__':
-    app.run(debug=True)
+     app.run(debug=True)
