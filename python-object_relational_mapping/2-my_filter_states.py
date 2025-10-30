@@ -33,5 +33,5 @@ if __name__ == "__main__":
     for row in cur.fetchall():
         print(row)
 
-    cur.close
-    db.close
+    cur.close()
+    db.close()
