@@ -10,7 +10,7 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     db = MySQLdb.connect(
-        hots0"localhost",
+        host="localhost",
         port=3306,
         user=username
         passwd=password,
