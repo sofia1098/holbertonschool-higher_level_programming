@@ -5,7 +5,7 @@ import sys
 
 
 if __name__ == "__main__":
-    username = sys.arg[1]
+    username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE 'N%' ORDER BY states.id ASC")
+    cur.execute("SELECT * FROM states WHERE name 'N%' ORDER BY states.id ASC")
 
     for row in cur.fetchall():
         print(row)
