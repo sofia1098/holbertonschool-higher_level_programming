@@ -5,16 +5,16 @@ import sys
 
 if __name__ == "__main__":
     usuario = sys.argv[1]
-    contrase = sys.argv[2]
+    password = sys.argv[2]
     base_datos = sys.argv[3]
 
     # CONEXION LOCAL
     db = MySQLdb.connect(
         host="localhost",
-        port=3306
-        user=usuario
-        passwd=contraseña,
-        db=base_datos
+        port=3306,
+        user=usuario,
+        passwd=password,
+        db=base_datos,
     )
     # CREA CRUSOR SQL, SIRVE PARA EJECUTAR SELECT, INSERT, ETC
     cur = db.cursor()
