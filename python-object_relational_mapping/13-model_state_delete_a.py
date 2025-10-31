@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Add the State object 'Louisiana' to the database """
+""" Delete all State objects with a name containing the letter 'a' """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -12,19 +12,19 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'
-            .format(username, password, db_name),
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            username, password, db_name
+        ),
         pool_pre_ping=True
     )
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    new_state = State(name="Louisiana")
+    states_to_delete = session.query(State).filter(State.name.like('%a%')).all()
 
-    # Add and commit to the database
-    session.add(new_state)
+    for state in states_to_delete:
+        session.delete(state)
+
     session.commit()
-
-    print(new_state.id)
     session.close()
