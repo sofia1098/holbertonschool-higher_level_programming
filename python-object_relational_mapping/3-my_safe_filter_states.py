@@ -1,9 +1,10 @@
+#!/usr/bin/python3
 """SQL Injection"""
 import sys
 import MySQLdb
 
 
-if __name__ == __main__:
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv.[3]
@@ -14,7 +15,7 @@ if __name__ == __main__:
         port=3306,
         user=username,
         passwd=password,
-        db=database
+        db=database,
     )
 
     cur = db.cursor()
