@@ -14,7 +14,7 @@ if __name__ == "__main__":
         db=argv[3],
     )
 
-    state_name = argv[4] 
+    state_name = argv[4]
 
     cur = db.cursor()
     query = (
