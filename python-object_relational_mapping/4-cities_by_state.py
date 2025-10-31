@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""Write a script that lists all cities from the database hbtn_0e_4_usa
-Your script should take 3 arguments: mysql username, mysql password and database name
-Results must be sorted in ascending order by cities.id"""
+""" Write a script that lists all cities from the database. """
 import MySQLdb
-import sys
+from sys import argv
 
 
 if __name__ == "__main__":
