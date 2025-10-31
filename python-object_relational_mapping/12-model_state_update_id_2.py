@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Print the State id with the name passed as argument """
+"""Change the name of a State object with id = 2 to 'New Mexico'"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -10,7 +10,6 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
-    search_name = sys.argv[4]
 
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -22,15 +21,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # filter (prevents injection)
-    state = (
-        session.query(State)
-        .filter(State.name == search_name)
-        .first()
-    )
+    state = session.query(State).filter(State.id == 2).first()
     if state:
-        print(state.id)
-    else:
-        print("Not found")
+        state.name = "New Mexico"
+        session.commit()
 
     session.close()
