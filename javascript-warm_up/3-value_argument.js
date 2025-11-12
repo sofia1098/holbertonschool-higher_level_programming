@@ -1,9 +1,6 @@
 #!/usr/bin/node
-
-const { argv } = require('node:process');
-
-// print process.argv
-argv.forEach((val, index) => {
-  console.log(`${index}: ${val}`);
-});
-if not argv console.log("No argument")
+if (process.argv[2] === undefined) {
+  console.log('No argument');
+} else {
+  console.log(process.argv[2]);
+}
