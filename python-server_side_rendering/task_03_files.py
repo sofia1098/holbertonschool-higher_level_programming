@@ -11,7 +11,6 @@ def load_json_products():
     except Exception:
         return []
 
-
 def load_csv_products():
     products = []
     try:
@@ -28,43 +27,38 @@ def load_csv_products():
         pass
     return products
 
-
 @app.route("/products")
 def products():
     source = request.args.get("source")
     product_id = request.args.get("id")
 
-    # Validate source
+    # Validate
     if source == "json":
         data = load_json_products()
     elif source == "csv":
         data = load_csv_products()
     else:
-        return render_template("product_display.html",
-                               error="Wrong source",
-                               products=[])
+        return render_template("product_display.html", error="Wrong source", products=[])
 
-    # Optional filtering by id
+    # filtering by id
     if product_id:
         try:
             product_id = int(product_id)
-            filtered = [p for p in data if p["id"] == product_id]
+            filtered = []
+                for p in data:
+                    if p["id"] == product_id:
+                        filtered.append(p)
 
             if not filtered:
-                return render_template("product_display.html",
-                                       error="Product not found",
-                                       products=[])
+                return render_template("product_display.html", error="Product not found", products=[])
             data = filtered
 
         except ValueError:
-            return render_template("product_display.html",
-                                   error="Invalid ID",
-                                   products=[])
+            return render_template("product_display.html", error="Invalid ID", products=[])
 
     return render_template("product_display.html",
                            error=None,
                            products=data)
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
