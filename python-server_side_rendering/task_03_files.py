@@ -38,23 +38,29 @@ def products():
     elif source == "csv":
         data = load_csv_products()
     else:
-        return render_template("product_display.html", error="Wrong source", products=[])
+        return render_template("product_display.html", 
+                                error="Wrong source", 
+                                products=[])
 
     # filtering by id
     if product_id:
         try:
             product_id = int(product_id)
             filtered = []
-                for p in data:
-                    if p["id"] == product_id:
-                        filtered.append(p)
+            for p in data:
+                if p["id"] == product_id:
+                    filtered.append(p)
 
             if not filtered:
-                return render_template("product_display.html", error="Product not found", products=[])
+                return render_template("product_display.html", 
+                error="Product not found",
+                products=[])
             data = filtered
 
         except ValueError:
-            return render_template("product_display.html", error="Invalid ID", products=[])
+            return render_template("product_display.html",
+             error="Invalid ID",
+              products=[])
 
     return render_template("product_display.html",
                            error=None,
